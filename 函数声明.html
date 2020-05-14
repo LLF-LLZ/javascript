@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * 1.变量会先声明但不赋值
+			 * 
+			 * 2.函数会提前声明且被复赋值
+			 */
+			function fun(){//声明且赋值，可以提前调用
+				console.log("qqq")
+				
+			}
+			var fun2 = function fun1 () {//不能提前调用，
+					console.log("heoll")				
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

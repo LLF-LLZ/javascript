@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		/*
+		 * forEach()遍历数组IE8
+		 * 
+		 * 需要函数作为参数
+		 * 
+		 * 数组中有几个元素就会执行几次，每次执行时，浏览器会将遍历的元素
+		 * 		以实参的方式传递进来，我们可以定义形参，来读取内容
+		 * 浏览器会在回调函数中传递三个参数  value,index,
+		 * 第三个参数  我们正在遍历的数组
+		 */
+		var arr =["孙虎空","猪八戒","沙和尚"];
+		arr.forEach(function(a,b,c){
+			console.log("a="+b);
+			
+		})
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

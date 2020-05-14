@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function createObj(name,age,sex){
+				var obj = new Object();
+				obj.name=name;
+				obj.age=age;
+				obj.sex=sex;
+				obj.saynane=function(){
+					alert(this.name);
+				}
+				return obj;
+			}
+			var obj1=createObj("孙虎空",17,"男");
+			var obj2=createObj("猪八戒",17,"男");
+			var obj3=createObj("沙和尚",17,"男");
+			console.log(obj1);
+			console.log(obj2);
+			console.log(obj3);
+			console.log(obj3.saynane());
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

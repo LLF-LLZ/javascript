@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				width: 500px;
+				height:333px;
+			}
+			#outer{
+				width: 520px;
+				height: 333px;
+				margin:50px auto;
+				background-color:#BBAAFF ;
+				padding: 10px 0;
+				position: relative;
+				overflow: hidden;
+			}
+			#imglist{
+				position: absolute;
+				/*left: -520px;*/
+				
+			}
+			#imglist li{
+				list-style: none;
+				float: left;
+				margin: 0 10px;	
+			}
+			#navDiv{
+			position: absolute;
+			bottom: 15px;
+			/*left: 210px;*/
+			}
+			#navDiv a{
+				float: left;
+				width: 15px;
+				height: 15px;
+				background-color:blue;
+				margin: 0 5px;
+				/*opacity: 0.5;*/
+			}
+			#navDiv a:hover{
+				background-color:black ;
+			}
+		</style>
+		<script type="text/javascript" src="js/dingshiqi.js"></script>
+		<script type="text/javascript">
+			
+        window.onload = function () {
+            // 设置imgList的宽度
+            // 获取imgList
+            var imgList = document.getElementById("imgList");
+
+            // 获取页面中所有的img标签
+            var imgArr = document.getElementsByTagName("img");
+
+            // 设置imgList的宽度
+            imgList.style.width = 520 * imgArr.length + "px";
+
+            // 设置导航按钮居中
+            // 获取imgDiv
+            var navDiv = document.getElementById("navDiv");
+            // 获取outer
+            var outer = document.getElementById("outer");
+            // 设置navDiv的值
+            navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2 + "px";
+
+            // 默认显示图片的索引
+            var index = 0;
+            // 获取所有a
+            var allA = document.getElementsByTagName("a");
+            // 设置默认选中的效果
+            allA[index].style.backgroundColor = "black";
+
+            // 点击超链接切换到指定的图片
+            //      点击第一个超链接，显示第一个图片
+            //      点击第二个超链接，显示第二张图片
+
+            for (var i = 0; i < allA.length; i++) {
+
+                // 为每一个超链接都添加一个num属性
+                allA[i].num = i;
+
+                // 为超链接绑定单击响应函数
+                allA[i].onclick = function () {
+
+                    // 关闭自动切换的定时器
+                    clearInterval(timer);
+
+                    // 获取点击超链接的索引,并将其设置为index
+                    index = this.num;
+
+                    // 切换图片
+                    //  第一张 0 0
+                    //  第二张 1 -610
+                    //  第三张 2 -1220
+                    // imgList.style.left = -610 * index + "px";
+
+                    // 设置选中的a
+                    setA();
+
+                     // 使用move函数来切换图片
+                     move(imgList,"left",20,-520*index,function(){
+                        //  动画执行完毕，开启自动切换
+                         autoChange();
+                     });
+
+                };
+            }
+
+            // 自动切换图片
+            // 开启自动切换
+            autoChange();
+
+
+            // 创建一个方法，用来设置选中的a
+            function setA(){
+
+                // 判断当前索引是否是最后一张图片
+                if(index >= imgArr.length - 1){
+                    // 则将index设置为0
+                    index = 0;
+
+                    // 此时显示的是最后一张图片，而最后一张图片和第一张是一模一样
+                    //  通过CSS将最后一张切换成第一张
+                    imgList.style.left = 0;
+                }
+                // 遍历所有a，将所有的背景颜色设置为tomato
+                for(var i=0 ; i<allA.length ; i++){
+                    allA[i].style.backgroundColor = "";
+                }
+
+                // 将选中的a设置为黑色
+                allA[index].style.backgroundColor = "black";
+            };
+
+            // 定义自动切换定时器标识
+            var timer;
+            // 创建一个函数，用来开启自动切换图片
+            function autoChange(){
+
+                // 开启一个定时器，用来定时去切换图片
+               timer = setInterval(function(){
+
+                    // 使索引自增
+                    index++;
+
+                    // 判断index的值
+                    index %=imgArr.length;
+
+                    // 执行动画切换图片
+                    move(imgList,20,-520*index,"left",function(){
+                        // 修改导航按钮
+                        setA();
+                    });
+                },3000);
+            }
+        };
+
+
+
+
+		</script>
+	</head>
+	<body>
+
+		<div id="outer">
+			<ul id="imgList">
+				<li>
+					<img src="img/1.jpg"/>
+				</li>
+				<li>
+					<img src="img/2.jpg"/>
+				</li>
+				<li>
+					<img src="img/3.jpg"/>
+				</li>
+				<li>
+					<img src="img/4.jpg"/>
+				</li>
+				<li>
+					<img src="img/1.jpg"/>
+				</li>
+			</ul>
+			<div id="navDiv">
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				
+			</div>
+			
+		</div>
+	</body>
+</html>

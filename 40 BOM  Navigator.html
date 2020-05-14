@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * BOM
+			 *  浏览器操作模型
+			 *  BOM可以通过js操作浏览器
+			 *  在BOM中为我们提供一组对象，用来完成浏览器的操作
+			 *  
+			 *   Window
+			 * 		代表浏览器的窗口，同时Window也是网页中全局变量
+			 *   Navigator
+			 * 		代表当前浏览器当前信息，通过该对象来识别不同的浏览器
+			 *   Location
+			 * 		代表浏览器的地址栏信息，通过Lacation可以获取地址栏信息，或者操作浏览器跳转页面
+			 *   History
+			 * 		代表浏览器的历史记录，可以通过对象来操作浏览器的历史记录
+			 * 		由于隐私原因，该对象不能获取到具体的历史记录，只能操作浏览器向前或向后
+			 * 		而且该操作只在当次访问有效
+			 *   Screen
+			 * 	 代表用户的屏幕信息，通过该对象可以获取到用户的显示器的相关信息
+			 * 
+			 *  这些BOM对象在浏览器中作为window对象的属性保存的
+			 *    可以通过window对象来使用，也可以直接使用
+			 */
+			//console.log(window.navigator);
+			/*
+			 * Navigator
+			 * 		代表当前浏览器当前信息，通过该对象来识别不同的浏览器
+			 *     由于历史原因，Navigator对象中的大部分属性已经不能帮助我们识别浏览器
+			 *    一般我们只会实验userAgent来判断浏览器信息，这个字符串中包含有用来描述
+			 * 浏览器信息的内容，不同的浏览器有不同的userAgent
+			 */
+			//console.log(navigator.userAgent);
+			var ua=navigator.userAgent;
+			console.log(ua);
+			if(/firefox/i.test(ua)){
+				alert("你是火狐");
+			}else if(/Chrome/i.test(ua)){
+				alert("你是谷歌");
+			}else if(/msie/i.test(ua)){
+				alert("你是IE")
+			}else if("ActiveXObject" in window){
+				alert("你是IE11");
+			}
+			/*
+			 * 如果通过UserAgent不能判断，还可以通过一些浏览器中特有的对象来判断浏览器的信息
+			 * 比如，ActiveXObject
+			 */
+			/*if(window.ActiveXObject){
+				alert("你是IE")
+			}
+			else{
+				alert("你不是IE");
+			}*/
+			//alert(window.ActiveXObject())
+			//alert("ActiveXObject" in window);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

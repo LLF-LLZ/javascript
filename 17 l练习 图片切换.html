@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			#outer{
+				width: 300px;
+				margin: 50px auto;
+				background-color:blanchedalmond ;
+				text-align: center;
+				
+				
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				/*
+				 * 点击按钮切换图片
+				 */
+				var pre=document.getElementById("pre");
+				var next=document.getElementById("next");
+				/*
+				 * y要切换图片，就是修改图片的src
+				 */
+				var img=document.getElementsByTagName("img")[0];
+				//保存图片路径数组
+				var imgarr=["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg"]
+				var index=0;
+				var info=document.getElementById("info");
+				
+				pre.onclick=function(){
+					index--;
+					if(index<0){
+						index=imgarr.length-1;
+					}
+					img.src=imgarr[index];
+					info.innerHTML="一共"+imgarr.length+"张图，当前是第"+(index+1)+"张";
+					
+				};
+				next.onclick=function(){
+					index++;
+					if(index>imgarr.length-1){
+						index=0;
+					}
+					
+					img.src=imgarr[index];
+					info.innerHTML="一共"+imgarr.length+"张图，当前是第"+(index+1)+"张";
+					
+				};
+			}
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<p id="info">一共4张图，当前是第1张</p>
+			<img src="img/1.jpg" style="width: 300px"/>
+			<button id="pre">上一张</button>
+			<button id="next">下一张</button>
+			
+		</div>
+	</body>
+</html>

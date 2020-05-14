@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				width: 500px;
+				height:333px;
+			}
+			#outer{
+				width: 520px;
+				height: 333px;
+				margin:50px auto;
+				background-color:#BBAAFF ;
+				padding: 10px 0;
+				position: relative;
+				overflow: hidden;
+			}
+			#imglist{
+				position: absolute;
+				/*left: -520px;*/
+				
+			}
+			#imglist li{
+				list-style: none;
+				float: left;
+				margin: 0 10px;	
+			}
+			#navDiv{
+			position: absolute;
+			bottom: 15px;
+			/*left: 210px;*/
+			}
+			#navDiv a{
+				float: left;
+				width: 15px;
+				height: 15px;
+				background-color:blue;
+				margin: 0 5px;
+				/*opacity: 0.5;*/
+			}
+			#navDiv a:hover{
+				background-color:black ;
+			}
+		</style>
+		<script type="text/javascript" src="js/dingshiqi.js">
+			
+		</script>
+		<script type="text/javascript">
+			window.onload=function(){
+				var imglist=document.getElementById("imglist");
+				var imgarr=document.getElementsByTagName("img");
+				imglist.style.width=520*imgarr.length+"px";
+				var outer=document.getElementById("outer");
+				var navDiv=document.getElementById("navDiv");
+				//让a居中
+				navDiv.style.left=(outer.offsetWidth-navDiv.offsetWidth)/2+"px";
+				//默认图片索引
+				var index=0;
+				//获取所有的a
+				var alla=document.getElementsByTagName("a");
+				//设置默认选择效果
+				alla[index].style.backgroundColor="black";
+				//点击超链接切换图片
+				for(var i=0;i<alla.length;i++){
+					//为a贴上标签
+				alla[i].num=i;
+				alla[i].onclick=function(){
+					clearInterval(timer);
+					index=this.num;
+					//alert(index)
+					//切换图片
+				//imglist.style.left=index*-520+"px";
+				
+				setA();
+				//利用move来实现点击a切换图片
+				move(imglist,20,-520*index,"left",function(){
+					autochange();
+				});
+				}
+			}
+				autochange();
+				//创建函数自动切换
+				
+				//创建一个方法，修改正在选中的a
+				function setA(){
+					//判断当前索引是否是最后一张图片
+					if(index >= imgarr.length-1){
+					index=0;
+					//显示的是最后一张图片
+					imglist.style.left=0;
+					}
+					//遍历所有的a，并将它们背景颜色为红色，
+					for(var i=0;i<alla.length;i++){
+						alla[i].style.backgroundColor="";						
+					}
+					alla[index].style.backgroundColor="black";
+				};
+				var timer;
+				function autochange(){
+					timer=setInterval(function(){
+						//索引自增
+						index++;
+						index %=imgarr.length;
+						move(imglist,20,-520*index,"left",function(){
+					setA();
+				});
+				
+					},3000);
+				}
+				
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<ul id="imglist">
+				<li>
+					<img src="img/1.jpg"/>
+				</li>
+				<li>
+					<img src="img/2.jpg"/>
+				</li>
+				<li>
+					<img src="img/3.jpg"/>
+				</li>
+				<li>
+					<img src="img/4.jpg"/>
+				</li>
+				<li>
+					<img src="img/1.jpg"/>
+				</li>
+			</ul>
+			<div id="navDiv">
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				
+			</div>
+			
+		</div>
+	</body>
+</html>

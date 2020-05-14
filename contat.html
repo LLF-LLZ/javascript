@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * 对原数组没有影响，拼接两个数组，
+			 * 还可以添加元素
+			 */
+			var arr=["孙虎空","猪八戒","沙和尚"];
+			var arr1=["白骨精","玉兔精","小白脸"];
+			var arr2=["白骨精","玉兔精","小白脸"];
+			arr.concat(arr2,arr1);
+			//console.log(arr);对原数组没有影响
+			var newArr=arr.concat(arr1,arr2,"你好");
+			console.log(newArr);
+			/*
+			 * join
+			 * 该方法可以将数组转化成字符串
+			 * 不会对原数组产生影响，而是将转换后字符串作为返回结果
+			 * 
+			 */
+			var result1= arr.join("-");
+			console.log(result1);
+			console.log("nihao");
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

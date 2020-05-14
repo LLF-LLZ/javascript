@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				//获取body
+				var body= document.body;
+				console.log(body);
+				//获取html
+				var html  =document.documentElement;
+				console.log(html);
+				//页面中的所有元素
+				var all=document.all;
+				//console.log(all);//undefined
+				//console.log(all.length);
+				for (var i=0;i<all.length;i++){
+					console.log(all[i]);
+				}
+				/*
+				 * 根据class属性值查询一组元素节点
+				 * getElementsByClassName()
+				 * IE8及以下浏览器不支持
+				 */
+				var box=document.getElementsByClassName("box01");
+				console.log(box.length);
+				//获取class 是box01里的div
+				//document.querySelector(),选择器方法，IE8支持
+				//使用该方法总会返回唯一的元素，如果条件有多个，也只会返回第一个
+				var divs=document.querySelector(".box01 div");
+				console.log(divs.innerHTML);
+				var divs=document.querySelectorAll(".box01");
+				console.log(divs.length);
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div class="box01">
+			<div>你好啊</div>
+		</div>
+		<div class="box01"></div>
+		<div class="box01"></div>
+		<div class="box01"></div>
+		<div></div>
+	</body>
+</html>

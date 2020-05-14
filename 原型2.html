@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Myclass(){
+				
+			}
+			Myclass.prototype.name="原型数据";
+			var mc = new Myclass();
+			console.log(mc.name);
+			//使用in检查1对象中是否有某个属性时，对象中没有，原型有返回true
+			//console.log("name" in mc);
+			//可以使用hasOwnprotopy()来检查对象中是否有该属性,该方法在原型里
+			//console.log(mc.hasOwnProperty("name"));
+			//console.log(Myclass.hasOwnProperty("hasOwnProperty"));
+	console.log(mc.__proto__.__proto__.hasOwnProperty("hasOwnProperty"));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

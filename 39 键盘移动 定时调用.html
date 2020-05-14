@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var speed=10;
+				var dir;
+				//开启一个定时器
+				setInterval(function(){
+					/*
+					 * 左37
+					 * 上38
+					 * 右39
+					 * 下40
+					 */
+					//console.log(event.keyCode);
+					
+					switch(dir){
+					case 37:
+						//alert("左");
+						box1.style.left=box1.offsetLeft - speed+"px";
+						//console.log(box1.offsetLeft);
+						break;
+					case 38:
+						//alert("上");
+						box1.style.top=box1.offsetTop - speed +"px";
+						
+						break;
+					case 39:
+						//alert("右");
+						box1.style.left=box1.offsetLeft + speed+"px";
+						break;
+					case 40:
+						//alert("下");
+						box1.style.top=box1.offsetTop + speed +"px";
+						break;
+					}
+				},30);
+				var box1=document.getElementById("box1");
+				document.onkeydown=function(event){
+					event=event || window.event;
+					if(event.ctrlKey){
+						speed = 100;
+					}
+					
+					dir=event.keyCode;
+				};
+				document.onkeyup=function(){
+					dir=0;
+					speed=10;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+			
+		</div>
+	</body>
+</html>

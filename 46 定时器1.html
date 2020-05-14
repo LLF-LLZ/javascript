@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			#box1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 0;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				
+				var box1=document.getElementById("box1");
+				var btn1=document.getElementById("btn01");
+				var timer;
+				btn1.onclick=function(){
+					clearInterval(timer);
+					timer=setInterval(function(){
+						//获取box1原来的left值
+						var old=parseInt(getStyle(box1,"left"));
+						//console.log(old);
+						//在旧值增加
+						var newvalue=old + 10;
+						//console.log(new);
+						box1.style.left=newvalue+"px";
+						if(newvalue===800){
+							clearInterval(timer);
+						}
+					},30);
+				}
+				}
+			function getStyle(obj,name){
+				if(window.getComputedStyle){
+				return getComputedStyle(obj,null)[name];
+				}else{
+				return obj.currentStyle[name];
+			}
+				}
+		</script>
+	</head>
+	<body>
+		<button id="btn01">点击按钮以后box1向右移动</button><br /><br />
+		<div id="box1"></div>
+		<div style="width: 0; height: 1000px; border-left: 1px solid black; position: absolute; left: 800px;"></div>
+	</body>
+</html>

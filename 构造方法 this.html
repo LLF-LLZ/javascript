@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * 构造函数与函数不太一样，它是有类的概念，而且属性的构造也不一样this.属性名
+			 * 当要使用这个方法时一定要new
+			 * this
+			 * 1.当以函数调用，this是window
+			 * 2.当以方法调用时，调用方法是谁就是谁
+			 * 3.当以构造函数调用时，this是新创建的那个对象
+			 */
+			function Person(name,age,sex){
+				this.name=name,
+				this.age=age,
+				this.sex=sex,
+				this.sayname=function fun(){
+					alert(this.name);
+				}
+			}
+			function Dog(name,age){
+				this.name=name,
+				this.age=age
+			}
+			var per1=new Person("孙虎空",17,"男");
+			var per2=new Person("猪八戒",17,"男");
+			var per3=new Person("沙和尚",17,"男");
+			var dog=new Dog("往往",4);
+			console.log(per2.sayname());
+			console.log(per1);
+			console.log(per2);
+			console.log(per3);
+			console.log(dog);
+			//console.log(per instanceof Person);//一个对象是否是一类的实例
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var btn=document.getElementById("btn");
+				btn.onclick=function(){
+					//可以跳转页面
+					//location="http://www.baidu.com";
+					//assign有历史记录
+					location.assign("http://www.baidu.com");
+					//replace没有历史记录
+					//location.replace("http://www.baidu.com");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn">点我一下</button>
+		<input type="text" name="" id="" value="" />
+	</body>
+</html>

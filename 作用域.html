@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * 作用域有两种
+			 * 1	全局作用域
+			 * 			页面打开创建，关闭销毁
+			 * 			全局对象Window,他由浏览器创建，我们可以直接使用
+			 *           全局作用域是Window的属性
+			 * 全局作用域的变量是全局变量
+			 * 在页面任意位置都可以访问
+			 * 2	函数作用域
+			 * 			
+			 */
+			var a = 123;
+			var b = "hello";
+			//console.log(b);
+			//console.log(window.b);
+			function fun(){
+				console.log("hello");
+			}
+			window.fun();//函数是全局对象的方法
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

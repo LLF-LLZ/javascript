@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Person(name,age,gender){
+				this.name=name;
+				this.age=age;
+				
+			}
+			var per = new Person("孙虎空",17);
+			var per1= new Person("猪八戒",19);
+			var per2= new Person("沙和尚",39);
+			var per3= new Person("小妖精",14);
+			var per4= new Person("大哥大",67);
+			var Arr = [per,per1,per2,per3,per4];
+			/*Person.prototype.toString=function(){
+				return "Person[name="+this.name+",age="+this.age+"]"
+				}
+			//console.log( typeof Arr[1].age);
+			var Arr1=[];
+			function test(){
+			for(i=0;i<Arr.length;i++){
+				if(Arr[i].age>18){	
+				name1=Arr[i].name
+				Arr1.push(name1)	
+				}
+			}
+			console.log(Arr1);
+		}
+		test();*/
+		Person.prototype.toString=function(){
+				//return "Person[name="+this.name+",age="+this.age+",gender="+this.gender"]"
+				return "Person[name="+this.name+",age="+this.age+"]"
+				}
+		var newArry=[];
+			function getAdult(arr){
+				for(var i=0;i<arr.length;i++){
+				var p = arr[i];
+				//console.log(arr[i]);
+				if(p.age>=18){
+					newArry.push(p);
+			}
+			}
+			return newArry;
+		}
+			
+		console.log(getAdult(Arr));
+		
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

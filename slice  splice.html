@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var arr =["孙虎空","猪八戒","沙和尚"];
+			/*
+			 * slice(第一个参数，第二个参数)
+			 * 第一个参数：索引值
+			 * 第二个参数：个数
+			 * 可以从数组中提取指定的元素
+			 *  
+			 * 该方法不能影响原数组
+			 * 
+			 * 第二个参数可以不用写
+			 * 也可以传递负数
+			 */
+			var result=arr.slice(0,2);
+			//var result1=arr.slice(1);
+			console.log(result);
+			
+			/*
+			 * splice()
+			 * 可以删除指定元素
+			 * 
+			 * 会影响原数组，并将删除完的元素作为返回值
+			 * 第三个元素及以后可以传递一些新元素，并从第一个参数可以添加
+			 */
+			arr.splice(0,2);
+			//arr.splice(0,0,"白骨精");
+			console.log(arr);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

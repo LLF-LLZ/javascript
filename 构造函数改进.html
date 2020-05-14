@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		/*
+		 * sayhello调用多次，但方法都一样，耗资源
+		 */
+		<script type="text/javascript">
+			function Person(name,age,sex){
+				this.name=name;
+				this.age=age;
+				this.sex=sex;
+				//this.sayhello=fun;
+			}
+			//function fun(){//在全局里对安全和平常1分工合作都不耗，不要在全局里
+				//alert(this.name);
+			//改进,在原型中添加了sayhello方法
+			Person.prototype.sayhello=function fun(){
+				alert(this.name)
+			}
+				
+			var per1=new Person("孙虎空",17,"男");
+			var per2=new Person("猪八戒",17,"男");
+			per1.sayhello();
+			per2.sayhello();
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

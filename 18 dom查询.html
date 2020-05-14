@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			document.onload=function(){
+			var btn04=document.getElementById("btn04");
+			btn04.onclick=function(){
+				var city=document.getElementById("city");
+				var list=city.getElementsByTagName("li");
+				console.log(list);
+				for(var i=0;i<list.length;i++){
+					alert(list[i].innerHTML);
+				}
+				
+			}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="total">
+			<div class="inner">
+				<p>你喜欢哪个城市</p>
+				<ul id="city">
+					<li id="bj">北京</li>
+					<li>上海</li>
+					<li>东京</li>
+					<li>首尔</li>
+				</ul>
+				<button id="btn04">点击事件</button>
+				<br />
+				
+			</div>
+			
+		</div>
+	</body>
+</html>

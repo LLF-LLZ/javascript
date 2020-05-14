@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var arr=["孙虎空","猪八戒","沙和尚"];
+			//push,向末尾添加一个或多个元素，并返回数组的新长度
+			var result=arr.push("唐生","qq","ss");
+			console.log(arr);
+			console.log(result);//返回数组新长度
+			
+			//删除数组最后一个元素，执行几次删除几个
+			arr.pop();
+			arr.pop();
+			console.log(arr);
+			
+			/*
+			 * unshift
+			 * 向数组开头添加一个或多个元素，并返回新的数组长度
+			 * 元素的索引会改变
+			 */
+			arr.unshift("大哥大","小妖精");
+			var result = arr.unshift("大哥大","小妖精");
+			console.log(arr);
+			console.log(result);
+			
+			/*
+			 * shift
+			 * 删除数组开头的第一个元素，并返回第一个元素
+			 * 
+			 */
+			arr.shift();
+			var result = arr.shift();
+			console.log(arr);
+			console.log(result);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

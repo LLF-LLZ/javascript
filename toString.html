@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Person(name,age,gender){
+				this.name=name;
+				this.age=age;
+				this.gender=gender;
+			}
+			var per = new Person("孙虎空",17,"男");
+			var per1= new Person("猪八戒",19,"男");
+			/*per.toString=function(){
+				//return "Person[name="+this.name+",age="+this.age+",gender="+this.gender"]"
+				return "Person[name="+this.name+",age="+this.age+",gender="+this.gender+"]"
+			};*///[object Object]
+			//原型修改
+			Person.prototype.toString=function(){
+				//return "Person[name="+this.name+",age="+this.age+",gender="+this.gender"]"
+				return "Person[name="+this.name+",age="+this.age+",gender="+this.gender+"]"
+				}
+			//console.log(per);
+			//console.log(per.toString());
+			//console.log(per.__proto__.__proto__.hasOwnProperty("toString"));
+			console.log(per1);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

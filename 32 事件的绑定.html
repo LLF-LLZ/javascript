@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				/*
+				 * 使用对象.事件=函数的形式绑定函数
+				 *  只能同时为一个元素的一件事件绑定一个响应函数
+				 *  不能绑定多个，如果绑定多个，后面的会覆盖前面的
+				 */
+			var btn=document.getElementById("btn1");
+			/*//为btn绑定第一个单击响应函数
+			btn.onclick=function(){
+				alert(1);
+			}
+			//为btn绑定第二个单击响应函数
+			btn.onclick=function(){
+				alert(2);
+			}*/
+			/*
+			 * addEventListener()，IE8不支持
+			 *  通过这个方法也可以为元素绑定响应函数
+			 * 参数
+			 *   1.事件的字符串，不用on
+			 *   2.回调函数，当事件触发时该函数被调用
+			 *   3。是否在捕获阶段触发事件，需要一个布尔值，一般为false
+			 * 
+			 * 使用addEventListener（）可以同时为一个元素的相同事件同时绑定多个响应函数
+			 * 这样当事件触发时，响应函数将会按照函数绑定顺序执行
+			 */
+			/*btn.addEventListener("click",function(){
+				alert(1);
+			},false);
+			btn.addEventListener("click",function(){
+				alert(2);
+			},false);*/
+			
+			/*
+			 * attachEvent()
+			 * 参数
+			 * 1.事件的字符串，要on
+			 * 2.回调函数
+			 * IE8及以下
+			 */
+			/*btn.attachEvent("onclick",function(){
+				alert(1);
+			})
+			btn.attachEvent("onclick",function(){
+				alert(1);
+			});
+			btn.attachEvent("onclick",function(){
+				alert(2);
+			});
+			btn.attachEvent("onclick",function(){
+				alert(3);
+			});*/
+			bind(btn,"click",function(){
+				alert(this);
+			})
+			function bind(obj,eventStr,callback){
+				if(obj.addEventListener){
+				obj.addEventListener(eventStr,callback,false);
+				}else{
+					obj.attachEvent("on"+eventStr,function(){
+						callback.call(obj);
+					})
+				//obj.attachEvent("on"+eventStr,callback);
+			}
+				}
+	}
+		</script>
+	</head>
+	<body>
+		<button id="btn1">点我一下</button>
+	</body>
+</html>

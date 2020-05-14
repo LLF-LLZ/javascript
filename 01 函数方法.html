@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * 函数方法
+			 * call()  apply() 通过函数对象来调用
+			 * 当对函数调用这两种方法，与fun()一样
+			 * 不同，可以指定第一个this
+			 */
+			function fun(a,b){
+				console.log("a="+a);
+				console.log("b="+b);
+				
+			}
+			var obj={};
+			/*fun();
+			fun.call(obj);
+			fun.apply(obj);*/
+	      var obj1={
+	      	name:"xiaoqiang",
+	      	sayhello:function(){
+	      		alert("obj1")
+	      	}
+	      }
+	      var obj2={
+	      	name:"xiaohua",
+	      	sayhello:function(){
+	      		alert("obj2")
+	      	}
+	      }
+			/*fun();
+			fun.call();
+			fun.apply();*///三者一样
+		fun.call(obj,2,3);//可以直接传参数
+		fun.apply(obj,[2,3]);//要以数组形式传参数
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

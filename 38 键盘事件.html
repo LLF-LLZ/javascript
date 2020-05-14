@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				/*
+				 * 键盘事件
+				 * 	onkeydown
+				 * 		按键被按下
+				 * 	onkeyup
+				 * 		按键被松开
+				 * 键盘事件一般绑定给一些可以获取到焦点的对象或者是document
+				 * 
+				 */
+				/*document.onkeydown=function(){
+					console.log("按键被按下");
+				}*/
+				//event.keyCode,获取按键的编码
+				/*
+				 * alyKey
+				 * ctrKey
+				 * shiftKey
+				 *  这三个用来判断alt,ctr,shift是否被按下，如果按下，返回true;
+				 */
+				document.onkeydown=function(event){
+					event=event || window.event;
+					if(event.keyCode===89 && event.altKey){
+					console.log("y都被按下了");
+					}
+				};
+				var input=document.getElementsByTagName("input")[0];
+				input.onkeydown=function(event){
+					event=event || window.event;
+					if(event.keyCode>=48 && event.keyCode<=57){
+						return false;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="" name="" id="" value="" />
+	</body>
+</html>

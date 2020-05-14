@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				/*
+				 * 如果希望一段程序，可以每间隔一段时间执行一次，可以定时调用
+				 */
+				var count=document.getElementById("count");
+				/*for(i=0;i<1000;i++){
+					count.innerHTML=i;
+					
+				}*/
+				var num=1;
+				var timer=setInterval(function(){
+					count.innerHTML=num++;
+					if(num==12){
+						clearInterval(timer);
+					}
+				},1000);
+			}
+		</script>
+	</head>
+	<body>
+		<h1 id="count"></h1>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * Date对象
+			 * 在js使用Date对象表示一个时间
+			 */
+			//创建一个Data对象
+			//返回的是当前代码执行的时间
+			var date = new Date();
+			console.log(date);
+			//创建指定时间对象
+			//需要在函数中传递一个表示时间的字符串作为参数
+			//日期格式 月/日/年 时：分：秒
+			var dat= new Date("12/04/2020 11:23:56");
+			console.log(dat);
+			//getDate(),当前日期对象是几日
+			console.log(dat.getDate());
+			//getDay(),表示周几 返回0-6,0周日
+			console.log(dat.getDay());
+			//getMonth,返回月份，0-11,0是一月
+			console.log(dat.getMonth());
+			//getFullYear(),返回年
+			console.log(dat.getFullYear());
+			
+			/*
+			 * 时间戳,存储时间统一  毫秒 1秒=1000毫秒
+			 */
+			var time=dat.getTime();
+			console.log(time);
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

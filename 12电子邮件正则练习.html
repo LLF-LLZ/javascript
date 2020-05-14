@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * \w{3,} (\.\w)* @ [A-Z0-9] + (\.[A-z]{2,5}){1,2}
+			 * reg=/^\w{3,}\.\w)*@[A-Z0-9]+(\.[A-z]{2,5}){1,2}$/
+			 */
+			var reg=/^\w{3,}(\.\w+)*@[A-Z0-9]+(\.[A-z]{2,5}){1,2}$/;
+			var email="abs.hello@132.com"
+			console.log(reg.test(email));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

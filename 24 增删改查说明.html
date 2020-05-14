@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){			
+				var allA=document.getElementsByTagName("a");
+			//为每个超链接绑定一个点击响应函数
+			for(var i=0;i<allA.length;i++){
+				allA[i].onclick=function(){
+					alert(allA[i] ==this);
+				
+				return false;
+			}
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<table id="employeeTable">
+			<tr>
+				<th>Name</th>
+				<th>Email</th>
+				<th>Salary</th>
+				<th>&nbsp;</th>
+			</tr>
+			<tr>
+				<td>Tom</td>
+				<td>tom@tom.com</td>
+				<td>5000</td>
+				<td><a href="deleteEmp?id=002">Delete</a></td>
+			</tr>
+			<tr>
+				<td>Jerry</td>
+				<td>jerry@jerry.com</td>
+				<td>5000</td>
+				<td><a href="deleteEmp?id=002">Delete</a></td>
+			</tr>
+			<tr>
+				<td>Bob</td>
+				<td>Bob@Bob.com</td>
+				<td>5000</td>
+				<td><a href="deleteEmp?id=002">Delete</a></td>
+			</tr>
+			</table>
+			<div id="formDiv">
+				<h4>添加新员工</h4>
+				<table>
+					<tr>
+						<td class="word">name</th>
+						<td class="inp">
+							<input type="text" name="empName" id="empName"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="word">email</td>
+						<td class="inp">
+							<input type="text" name="email" id="email"/>
+						</td>
+					</tr>
+					<tr>
+						<td class="word">salary</td>
+						<td class="inp">
+							<input type="text" name="salary" id="salary"/>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
+							<button id="addEmpbutton" value="abc">
+								Submit
+							</button>
+						</td>
+					</tr>
+				</table>
+				
+			</div>
+	</body>
+</html>

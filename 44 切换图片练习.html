@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 250px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var img1=document.getElementById("img1");
+				var imgarr=["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg"];
+				var index=0;
+				var timer;
+				var btn1=document.getElementById("btn1");
+				var btn2=document.getElementById("btn2");
+				
+				btn1.onclick=function(){
+				/*
+				 * 目前，我们每点击一次按钮，就会开启一个定时器
+				 * 点击多次开启多个定时器，加快速度
+				 */
+				//关闭上一个定时器
+				clearInterval(timer);
+				
+				//开启定时器
+				 timer=setInterval(function(){
+					index++;
+					/*if(index>=imgarr.length){
+						index=0;
+						
+					}*/
+					index=index%imgarr.length;
+					img1.src=imgarr[index];
+				},1000);
+				
+			}
+				btn2.onclick=function(){
+					/*
+					 * clearInterval()可以接受任意的参数、
+					 * 如果参数是个有效的定时器标识，则关闭定时器
+					 * 如果参数不是一个有效的标识，则什么也不做
+					 */
+					clearInterval(timer);
+				}
+				}
+		</script>
+	</head>
+	<body>
+		<img  id="img1" src="img/1.jpg"/><br />
+		<button id="btn1">开始</button>
+		<button id="btn2">停止</button>
+	</body>
+</html>

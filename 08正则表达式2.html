@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*使用字面量来创建正则表达式
+			 * 语法
+			 * var 变量=/正则表达式/匹配模式
+			 *	使用构造函数更加灵活
+			 */
+			var reg=new RegExp("a","i");
+			var reg=/a/i;
+			//console.log(reg.test("acds"));
+			//|表示或
+			reg =/a|b|f|h|j/;
+			//任意小写字符
+			reg=/[a-z]/
+			//任意大写字母
+			reg=/[A-Z]/
+			console.log(reg.test("cas"));
+			//检查一个字符串是否含有abc,或adc,aec
+			reg=/a[bde]c/
+			
+			/*
+			 * [^]除了
+			 */
+			//reg=/[^abc]/
+			reg=/[^0-9]/
+			console.log(reg.test("12"));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
